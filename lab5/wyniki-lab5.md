@@ -33,4 +33,4 @@ Oba pliki w `/lab-data/` należą do root:daemon (0:2). `ogolny.txt` ma prawa 64
 
 Logowanie do WWW nie daje CGI praw administratora, ponieważ Basic sprawdza użytkownika HTTP, ale nie zmienia UID/GID procesu, według których system sprawdza prawa plików.
 
-Logi są dostepne w [dowody.md](pliki-dla-studentow/dowody.md).
+Logi są dostepne w [dowody.md](dowody.md).
