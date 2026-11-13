@@ -34,7 +34,7 @@ def dodaj():
 def szukaj():
     fraza = request.args.get("q", "")
     html = "<!doctype html><meta charset='utf-8'><title>Szukaj</title>"
-    html += "<h1>Wyniki wyszukiwania dla: " + fraza + "</h1><ul>"
+    html += "<h1>Wyniki wyszukiwania dla: " + escape(fraza) + "</h1><ul>"
     for autor, tresc in WPISY:
         if fraza.lower() in tresc.lower():
             html += "<li>" + escape(autor) + ": " + escape(tresc) + "</li>"
