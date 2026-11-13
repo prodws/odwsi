@@ -7,7 +7,7 @@ from html import escape
 
 app = Flask(__name__)
 app.secret_key = "lab6-cwiczeniowy-klucz-nie-do-produkcji"
-app.config["SESSION_COOKIE_HTTPONLY"] = False
+app.config["SESSION_COOKIE_HTTPONLY"] = True
 
 UZYTKOWNICY = {"anna": "anna-lab6", "student": "student-lab6"}
 NOTATKI = {
