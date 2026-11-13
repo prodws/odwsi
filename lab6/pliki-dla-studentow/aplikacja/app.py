@@ -72,5 +72,14 @@ def wyloguj():
     return redirect(url_for("tablica"))
 
 
+@app.after_request
+def dodaj_csp(response):
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; script-src 'self'; "
+        "object-src 'none'; base-uri 'self'"
+    )
+    return response
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)

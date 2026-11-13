@@ -8,7 +8,7 @@
 </form>{% else %}<p><a href="/logowanie">Zaloguj się</a>, aby dodać ogłoszenie.</p>{% endif %}
 <ul>
 {% for autor, tresc in wpisy %}
-  <li><b>{{ autor }}</b>: {{ tresc|safe }}</li>
+  <li><b>{{ autor }}</b>: {{ tresc }}</li>
 {% endfor %}
 </ul>
 {% endblock %}
