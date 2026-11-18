@@ -18,13 +18,14 @@ def index():
 @app.route("/sekret")
 def sekret():
     klucz = request.args.get("klucz", "")
-    zapytanie = "SELECT wlasciciel, sekret FROM sekrety WHERE klucz = '" + klucz + "'"
+    zapytanie = "SELECT wlasciciel, sekret FROM sekrety WHERE klucz = ?"
     wiersze, blad = [], None
     try:
         with sqlite3.connect(BAZA, uri=True) as db:
-            wiersze = db.execute(zapytanie).fetchall()
-    except sqlite3.Error as exc:
-        blad = f"{type(exc).__name__}: {exc}"
+            wiersze = db.execute(zapytanie, (klucz,)).fetchall()
+    except sqlite3.Error:
+        app.logger.exception("Błąd zapytania do bazy")
+        blad = "Nie udało się pobrać danych."
     return render_template("sekret.html", klucz=klucz, zapytanie=zapytanie, wiersze=wiersze, blad=blad)
 
 
